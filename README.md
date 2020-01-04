@@ -32,23 +32,12 @@ Run that uberjar:
 
 ## Options
 
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
+-h or --help: prints usage
+-v or --verbose: prints out the filenames as it's counting
 
 ## License
 
-Copyright © 2020 Eamonn
+Copyright © 2020 Eamonn Sullivan
 
-Distributed under the Eclipse Public License either version 1.0 or (at
+Distributed under the Eclipse Public License either version 2.0 or (at
 your option) any later version.
