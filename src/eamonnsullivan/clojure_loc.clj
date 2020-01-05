@@ -1,9 +1,16 @@
 (ns eamonnsullivan.clojure-loc
   (:require [clojure.java.io :refer [reader]]
             [clojure.string :as string]
-            [clojure.tools.cli :refer [parse-opts]])
+            [clojure.tools.cli :refer [parse-opts]]
+            [clojure.spec.alpha :as s])
   (:import java.io.File)
   (:gen-class))
+
+;; specs
+(s/fdef non-blank?
+  :args (s/cat :line string?)
+  :ret boolean?
+  :fn #(= (:ret %) (not (-> % :args :line string/blank?))))
 
 (defn non-blank?
   "Does this line contain anything?"
