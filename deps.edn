@@ -12,4 +12,15 @@
                "-d" "test"]}
   :uberjar {:extra-deps {seancorfield/depstar {:mvn/version "0.5.1"}}
             :main-opts ["-m" "hf.depstar.uberjar" "clojure-loc.jar"
-                        "-C" "-m" "eamonnsullivan.clojure-loc"]}}}
+                        "-C" "-m" "eamonnsullivan.clojure-loc"]}
+  :native-image
+  {:main-opts ["-m clj.native-image eamonnsullivan.clojure-loc"
+               "--initialize-at-build-time"
+               "--no-fallback"
+               ;; optional native image name override
+               "-H:Name=clojure-loc"]
+   :jvm-opts ["-Dclojure.compiler.direct-linking=true"]
+   :extra-deps
+   {clj.native-image
+    {:git/url "https://github.com/taylorwood/clj.native-image.git"
+     :sha "7708e7fd4572459c81f6a6b8e44c96f41cdd92d4"}}}}}
